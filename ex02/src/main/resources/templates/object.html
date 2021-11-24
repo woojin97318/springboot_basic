@@ -11,6 +11,7 @@
 	<h3>session</h3>
 	<div th:text="${session.user.name}"></div>
 	<div th:text="${session.user.addr}"></div>
+	<h4>object</h4>
 	<div th:object="${session.user}">
 		<p th:text=*{name}></p>
 		<p th:text=*{addr}></p>
@@ -20,6 +21,7 @@
 	<h3>model</h3>
 	<div th:text="${user.name}"></div>
 	<div th:text="${user.addr}"></div>
+	<h4>object</h4>
 	<div th:object="${user}">
 		<p th:text=*{name}></p>
 		<p th:text=*{addr}></p>

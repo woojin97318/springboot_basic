@@ -26,12 +26,14 @@ public class CommonController {
 	@GetMapping("object")
 	public String object(Model model) {
 		TestDTO dto01 = new TestDTO();
-		TestDTO dto02 = new TestDTO();
-		dto01.setName("홍길동-01"); dto01.setAddr("산골짜기-01");
-		dto02.setName("홍길동-02"); dto02.setAddr("산골짜기-02");
-		
+		dto01.setName("홍길동-01");
+		dto01.setAddr("산골짜기-01");
 		session.setAttribute("user", dto01);
-		model.addAttribute("user", dto02);
+		
+		TestDTO dto02 = new TestDTO();
+		dto02.setName("홍길동-02");
+		dto02.setAddr("산골짜기-02");
+		model.addAttribute("user", dto02);		
 		
 		String message = "<script>alert('문제발생');</script>";
 		message += "<h1>코드 추가</h1>";
