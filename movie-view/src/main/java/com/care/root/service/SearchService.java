@@ -1,15 +1,20 @@
 package com.care.root.service;
 
-import java.util.ArrayList;
-
-import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.care.root.dto.SearchMovieDto;
+import com.care.root.movieURL.movieURL;
 
 @Service
-public class SearchService {
+public class SearchService implements movieURL {
+	RestTemplate movieSearch = new RestTemplate();
+
+	/*
 	public ArrayList<SearchMovieDto> getMovieView() {
+		String test = movieSearch.getForObject(
+				movieViewUrl + "/getMovies", String.class);
+		System.out.println("view 결과 확인 : " + test);
 		ArrayList<SearchMovieDto> list = new ArrayList<SearchMovieDto>();
 		String movieURL = "http://localhost:10000/search/movieinfo/";
 		for (int i = 1; i < 6; i++) {
@@ -22,5 +27,9 @@ public class SearchService {
 			list.add(dto);
 		}
 		return list;
+	}*/
+	public SearchMovieDto[] getMovieView() {
+		return movieSearch.getForObject(
+				movieViewUrl + "/getMovies" , SearchMovieDto[].class);
 	}
 }
