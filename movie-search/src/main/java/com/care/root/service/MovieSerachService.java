@@ -1,6 +1,7 @@
 package com.care.root.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
@@ -26,5 +27,13 @@ public class MovieSerachService implements MovieURL {
 
 	public SearchMovieDto getMovieInfo(String movieId) {
 		return dao.getMovieInfo(movieId);
+	}
+
+	public Integer getCount(Integer userId) {
+		return dao.getCount(userId);
+	}
+
+	public void subCount(Map map) {
+		dao.subCount(map);
 	}
 }

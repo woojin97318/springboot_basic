@@ -34,7 +34,7 @@ public class MoiveController {
 	}
 	@PostMapping("booking")
 	public String booking(MovieBookDto dto, Model model) {
-	    String message = "<script>alert('성공')</script>";
+		String message = service.booking(dto);
 	    model.addAttribute("msg", message);
 	    model.addAttribute("book", dto);
 	    return "booking";
